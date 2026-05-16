@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shreya Paurus Pathak | Futuristic Resume</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+:root{
+    --bg:#060816;
+    --card:rgba(255,255,255,0.06);
+    --card-border:rgba(255,255,255,0.08);
+    --text:#ffffff;
+    --muted:#a5b4d6;
+    --primary:#7c4dff;
+    --secondary:#00d4ff;
+    --accent:#ff4fd8;
+    --glow:0 0 40px rgba(124,77,255,.35);
+    --radius:24px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    line-height:1.6;
+}
+
+/* Background */
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left,#6c3bff33,transparent 25%),
+    radial-gradient(circle at bottom right,#00d5ff22,transparent 25%),
+    radial-gradient(circle at center,#ff4fd81a,transparent 35%);
+    z-index:-3;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:50px 50px;
+    z-index:-2;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent);
+}
+
+/* Loader */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#050816;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    transition:.8s ease;
+}
+
+.loader.hidden{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-circle{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:4px solid rgba(255,255,255,.08);
+    border-top-color:var(--secondary);
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+/* Navbar */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(16px);
+    background:rgba(5,8,22,.55);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    z-index:999;
+}
+
+.logo{
+    font-size:1.3rem;
+    font-weight:700;
+    font-family:'Space Grotesk',sans-serif;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:var(--secondary);
+}
+
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#fff;
+    font-size:.95rem;
+    position:relative;
+}
+
+nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:2px;
+    background:linear-gradient(90deg,var(--secondary),var(--accent));
+    transition:.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:120px 8%;
+    gap:50px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.04);
+    border-radius:999px;
+    margin-bottom:25px;
+    backdrop-filter:blur(20px);
+}
+
+.hero h1{
+    font-size:5rem;
+    line-height:1;
+    font-family:'Outfit',sans-serif;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,var(--secondary),#fff,var(--accent));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.typing{
+    font-size:1.4rem;
+    color:var(--secondary);
+    min-height:40px;
+    margin-bottom:25px;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:1.05rem;
+    max-width:600px;
+}
+
+.hero-buttons{
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 28px;
+    border-radius:16px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    text-decoration:none;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;
+    box-shadow:var(--glow);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.12);
+}
+
+.hero-card{
+    width:420px;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    padding:40px;
+    border-radius:32px;
+    backdrop-filter:blur(24px);
+    box-shadow:0 0 50px rgba(0,0,0,.45);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-card::before{
+    content:'';
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:var(--secondary);
+    filter:blur(100px);
+    top:-80px;
+    right:-80px;
+    opacity:.35;
+}
+
+.hero-card h3{
+    font-size:1.8rem;
+    margin-bottom:10px;
+}
+
+.hero-card p{
+    color:var(--muted);
+}
+
+.stat-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:35px;
+}
+
+.stat{
+    padding:22px;
+    border-radius:20px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.stat h2{
+    font-size:2rem;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:.9rem;
+}
+
+/* Sections */
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    font-size:3rem;
+    font-family:'Outfit',sans-serif;
+    margin-bottom:18px;
+}
+
+.section-sub{
+    color:var(--muted);
+    max-width:700px;
+    margin-bottom:50px;
+}
+
+/* Cards */
+
+.glass-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--radius);
+    backdrop-filter:blur(20px);
+}
+
+/* About */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    gap:30px;
+}
+
+.about-card{
+    padding:40px;
+}
+
+.about-card p{
+    color:var(--muted);
+    margin-top:18px;
+}
+
+.highlight-box{
+    padding:35px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:25px;
+}
+
+.highlight-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.highlight-item i{
+    width:50px;
+    height:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:14px;
+    background:rgba(255,255,255,.05);
+    color:var(--secondary);
+}
+
+/* Timeline */
+
+.timeline{
+    position:relative;
+    margin-top:40px;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:20px;
+    top:0;
+    width:2px;
+    height:100%;
+    background:linear-gradient(var(--secondary),transparent);
+}
+
+.timeline-item{
+    position:relative;
+    margin-left:70px;
+    margin-bottom:40px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:-61px;
+    top:18px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:var(--secondary);
+    box-shadow:0 0 20px var(--secondary);
+}
+
+.timeline-card{
+    padding:35px;
+    transition:.4s;
+}
+
+.timeline-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 40px rgba(124,77,255,.2);
+}
+
+.timeline-card h3{
+    font-size:1.5rem;
+}
+
+.timeline-card h4{
+    color:var(--secondary);
+    margin-top:8px;
+}
+
+.timeline-card p{
+    color:var(--muted);
+    margin-top:16px;
+}
+
+/* Skills */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.skill-card{
+    padding:28px;
+    transition:.4s;
+}
+
+.skill-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,255,255,.18);
+}
+
+.skill-card h4{
+    margin-bottom:16px;
+}
+
+.progress{
+    height:10px;
+    background:rgba(255,255,255,.06);
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--secondary),var(--primary));
+    border-radius:999px;
+}
+
+/* Achievements */
+
+.achievement-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+}
+
+.achievement-card{
+    padding:32px;
+    position:relative;
+    overflow:hidden;
+}
+
+.achievement-card::before{
+    content:'';
+    position:absolute;
+    width:140px;
+    height:140px;
+    background:var(--primary);
+    filter:blur(80px);
+    opacity:.25;
+    top:-60px;
+    right:-60px;
+}
+
+.achievement-card i{
+    font-size:2rem;
+    color:var(--secondary);
+    margin-bottom:18px;
+}
+
+.achievement-card p{
+    color:var(--muted);
+    margin-top:12px;
+}
+
+/* Education */
+
+.edu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
+}
+
+.edu-card{
+    padding:35px;
+}
+
+.edu-card h3{
+    margin-bottom:10px;
+}
+
+.edu-card p{
+    color:var(--muted);
+}
+
+/* Certifications */
+
+.cert-list{
+    display:grid;
+    gap:18px;
+}
+
+.cert{
+    padding:24px;
+    cursor:pointer;
+}
+
+.cert-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cert-content{
+    max-height:0;
+    overflow:hidden;
+    transition:.4s;
+    color:var(--muted);
+}
+
+.cert.active .cert-content{
+    max-height:120px;
+    margin-top:18px;
+}
+
+/* Contact */
+
+.contact-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.contact-card{
+    padding:40px;
+}
+
+.contact-card p{
+    color:var(--muted);
+    margin-top:16px;
+}
+
+.contact-info{
+    margin-top:30px;
+}
+
+.contact-item{
+    display:flex;
+    gap:15px;
+    margin-bottom:20px;
+    align-items:center;
+}
+
+.contact-item i{
+    width:50px;
+    height:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:14px;
+    background:rgba(255,255,255,.04);
+    color:var(--secondary);
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+input, textarea{
+    padding:18px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.04);
+    color:#fff;
+    outline:none;
+}
+
+textarea{
+    min-height:160px;
+    resize:none;
+}
+
+/* Footer */
+
+footer{
+    padding:40px 8%;
+    border-top:1px solid rgba(255,255,255,.05);
+    text-align:center;
+    color:var(--muted);
+}
+
+/* Floating */
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.25;
+    animation:float 8s ease-in-out infinite alternate;
+}
+
+.blob1{
+    width:250px;
+    height:250px;
+    background:#6c3bff;
+    top:10%;
+    right:10%;
+}
+
+.blob2{
+    width:220px;
+    height:220px;
+    background:#00d4ff;
+    bottom:10%;
+    left:5%;
+}
+
+@keyframes float{
+    from{transform:translateY(0px);}
+    to{transform:translateY(-40px);}
+}
+
+/* Reveal */
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Back to top */
+
+.top-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--secondary),var(--primary));
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    cursor:pointer;
+    box-shadow:var(--glow);
+    z-index:1000;
+}
+
+/* Responsive */
+
+@media(max-width:1000px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-card{
+    width:100%;
+}
+
+.about-grid,
+.contact-wrap{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:3.4rem;
+}
+}
+
+@media(max-width:768px){
+
+nav ul{
+    display:none;
+}
+
+.hero{
+    padding-top:160px;
+}
+
+.section-title{
+    font-size:2.2rem;
+}
+}
+
+</style>
+</head>
+<body>
+
+<div class="loader">
+    <div class="loader-circle"></div>
+</div>
+
+<div class="grid"></div>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<nav>
+    <div class="logo">Shreya<span>.</span></div>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+
+<div class="hero-content reveal">
+
+<div class="tag">
+<i class="fa-solid fa-sparkles"></i>
+Future of Supply Chain Leadership
+</div>
+
+<h1>
+Shreya <span>Paurus Pathak</span>
+</h1>
+
+<div class="typing"></div>
+
+<p>
+High-impact Supply Chain professional with 6+ years of expertise across Logistics SaaS, enterprise partnerships, transportation optimization, supply chain analytics, and digital transformation initiatives.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn btn-primary">
+Download Resume
+</a>
+
+<a href="#contact" class="btn btn-secondary">
+Contact Me
+</a>
+</div>
+
+</div>
+
+<div class="hero-card reveal">
+
+<h3>Enterprise Growth Strategist</h3>
+
+<p>
+Driving scalable logistics SaaS growth through strategic partnerships, analytics-driven decisions, and digital supply chain transformation.
+</p>
+
+<div class="stat-grid">
+
+<div class="stat">
+<h2>6+</h2>
+<span>Years Experience</span>
+</div>
+
+<div class="stat">
+<h2>50+</h2>
+<span>Enterprise Deals</span>
+</div>
+
+<div class="stat">
+<h2>15+</h2>
+<span>Strategic Partnerships</span>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<span>Growth Focused</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title reveal">About Me</h2>
+
+<p class="section-sub reveal">
+Experienced Supply Chain & Logistics SaaS professional specializing in enterprise sales, transportation solutions, GTM strategy, and digital transformation.
+</p>
+
+<div class="about-grid">
+
+<div class="about-card glass-card reveal">
+<h3>Strategic Supply Chain Leadership</h3>
+
+<p>
+Shreya Paurus Pathak is a results-driven professional with expertise spanning logistics SaaS, strategic partnerships, transportation optimization, freight operations, and supply chain analytics.
+</p>
+
+<p>
+With experience across enterprise growth functions, she has successfully led GTM strategies, partner ecosystems, CRM-driven sales processes, and digital transformation initiatives for modern supply chain businesses.
+</p>
+
+<p>
+Her expertise combines analytical thinking, SaaS consulting, and operational execution to deliver measurable business growth and supply chain efficiency.
+</p>
+</div>
+
+<div class="highlight-box glass-card reveal">
+
+<div class="highlight-item">
+<i class="fa-solid fa-chart-line"></i>
+<div>
+<h4>Supply Chain Analytics</h4>
+<p>Enterprise optimization & insights</p>
+</div>
+</div>
+
+<div class="highlight-item">
+<i class="fa-solid fa-network-wired"></i>
+<div>
+<h4>Strategic Partnerships</h4>
+<p>GTM & partner ecosystem growth</p>
+</div>
+</div>
+
+<div class="highlight-item">
+<i class="fa-solid fa-truck-fast"></i>
+<div>
+<h4>Logistics SaaS</h4>
+<p>Transportation & freight innovation</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="experience">
+
+<h2 class="section-title reveal">Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+
+<div class="timeline-card glass-card">
+<h3>Roado</h3>
+<h4>AGM - BD & Partnership | 2025 – Present</h4>
+<p>
+Driving enterprise SaaS sales, strategic logistics partnerships, GTM planning, and digital supply chain transformation initiatives across FTL, PTL, and EXIM logistics ecosystems.
+</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+
+<div class="timeline-card glass-card">
+<h3>SuperProcure</h3>
+<h4>Manager - Partnership & Growth | 2024 – 2025</h4>
+<p>
+Built scalable partner-led growth models, executed co-branded GTM initiatives, and accelerated logistics SaaS adoption for enterprise and SME segments.
+</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+
+<div class="timeline-card glass-card">
+<h3>SuperProcure</h3>
+<h4>Senior Account Manager | 2023 – 2024</h4>
+<p>
+Managed enterprise accounts, executed partner campaigns, and strengthened long-term strategic collaborations across assigned business regions.
+</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+
+<div class="timeline-card glass-card">
+<h3>Fleetx.io</h3>
+<h4>Senior Executive - Enterprise Sales | 2021 – 2022</h4>
+<p>
+Engaged CXOs and enterprise stakeholders through strategic outreach, SaaS demos, CRM analytics, and logistics automation solutioning.
+</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+
+<div class="timeline-card glass-card">
+<h3>Amazin Automation Solution India</h3>
+<h4>Inside Sales Executive | 2019 – 2022</h4>
+<p>
+Led SDR operations, sales forecasting, CRM optimization, proposal creation, and logistics automation business growth initiatives.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="section-title reveal">Core Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill-card glass-card reveal">
+<h4>Supply Chain Analytics</h4>
+<div class="progress"><span style="width:95%"></span></div>
+</div>
+
+<div class="skill-card glass-card reveal">
+<h4>Logistics SaaS</h4>
+<div class="progress"><span style="width:92%"></span></div>
+</div>
+
+<div class="skill-card glass-card reveal">
+<h4>ERP / SAP</h4>
+<div class="progress"><span style="width:85%"></span></div>
+</div>
+
+<div class="skill-card glass-card reveal">
+<h4>Strategic Partnerships</h4>
+<div class="progress"><span style="width:96%"></span></div>
+</div>
+
+<div class="skill-card glass-card reveal">
+<h4>Transportation Management</h4>
+<div class="progress"><span style="width:90%"></span></div>
+</div>
+
+<div class="skill-card glass-card reveal">
+<h4>CRM & Automation</h4>
+<div class="progress"><span style="width:91%"></span></div>
+</div>
+
+<div class="skill-card glass-card reveal">
+<h4>Business Intelligence</h4>
+<div class="progress"><span style="width:88%"></span></div>
+</div>
+
+<div class="skill-card glass-card reveal">
+<h4>Demand Analytics</h4>
+<div class="progress"><span style="width:87%"></span></div>
+</div>
+
+</div>
+
+</section>
+
+<section id="achievements">
+
+<h2 class="section-title reveal">Achievements</h2>
+
+<div class="achievement-grid">
+
+<div class="achievement-card glass-card reveal">
+<i class="fa-solid fa-award"></i>
+<h3>National Logistics Policy</h3>
+<p>
+Represented the organization at major supply chain and logistics industry platforms.
+</p>
+</div>
+
+<div class="achievement-card glass-card reveal">
+<i class="fa-solid fa-building"></i>
+<h3>Enterprise Clients</h3>
+<p>
+Worked with leading brands including Hindware, Haldiram, Flipkart, Himalaya Wellness, Emami, and Vardhman Textiles.
+</p>
+</div>
+
+<div class="achievement-card glass-card reveal">
+<i class="fa-solid fa-globe"></i>
+<h3>Industry Presence</h3>
+<p>
+Participated in IETF, Elecrama, and Top 100 Supply Chain forums to strengthen enterprise visibility and partnerships.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title reveal">Education</h2>
+
+<div class="edu-grid">
+
+<div class="edu-card glass-card reveal">
+<h3>MBA - Logistics, Materials & Supply Chain Management</h3>
+<p>Manipal University Jaipur</p>
+<p>2024 – 2026</p>
+</div>
+
+<div class="edu-card glass-card reveal">
+<h3>B.Tech - Petroleum Engineering</h3>
+<p>Rajasthan Technical University</p>
+<p>2015 – 2019</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title reveal">Certifications</h2>
+
+<div class="cert-list">
+
+<div class="cert glass-card reveal">
+<div class="cert-head">
+<h3>Supply Chain Analytics</h3>
+<i class="fa-solid fa-plus"></i>
+</div>
+<div class="cert-content">
+Advanced logistics analytics and enterprise supply chain optimization certification.
+</div>
+</div>
+
+<div class="cert glass-card reveal">
+<div class="cert-head">
+<h3>SAP SD Module</h3>
+<i class="fa-solid fa-plus"></i>
+</div>
+<div class="cert-content">
+Professional ERP and SAP Sales & Distribution learning specialization.
+</div>
+</div>
+
+<div class="cert glass-card reveal">
+<div class="cert-head">
+<h3>Google Project Management</h3>
+<i class="fa-solid fa-plus"></i>
+</div>
+<div class="cert-content">
+Project planning, agile execution, and enterprise delivery methodologies.
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title reveal">Contact</h2>
+
+<div class="contact-wrap">
+
+<div class="contact-card glass-card reveal">
+
+<h3>Let's Build Future Supply Chains</h3>
+
+<p>
+Open to strategic collaborations, enterprise SaaS opportunities, and transformational supply chain initiatives.
+</p>
+
+<div class="contact-info">
+
+<div class="contact-item">
+<i class="fa-solid fa-envelope"></i>
+<div>
+<h4>Email</h4>
+<p>spauras@gmail.com</p>
+</div>
+</div>
+
+<div class="contact-item">
+<i class="fa-solid fa-phone"></i>
+<div>
+<h4>Phone</h4>
+<p>8209889626</p>
+</div>
+</div>
+
+<div class="contact-item">
+<i class="fa-brands fa-linkedin"></i>
+<div>
+<h4>LinkedIn</h4>
+<p>linkedin.com/in/shreya-paurus-pathak-17462716b</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="contact-card glass-card reveal">
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea placeholder="Your Message"></textarea>
+
+<button class="btn btn-primary">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Shreya Paurus Pathak — Futuristic Resume Portfolio
+</footer>
+
+<div class="top-btn">
+<i class="fa-solid fa-arrow-up"></i>
+</div>
+
+<script>
+
+/* Loader */
+
+window.addEventListener("load",()=>{
+    document.querySelector(".loader").classList.add("hidden");
+});
+
+/* Typing */
+
+const roles = [
+"Supply Chain Professional",
+"Logistics SaaS Expert",
+"Enterprise SaaS Strategist",
+"Partnerships & Growth Specialist",
+"Supply Chain Analytics Professional"
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const typing = document.querySelector(".typing");
+
+function typeEffect(){
+
+    const current = roles[roleIndex];
+
+    if(!deleting){
+        typing.textContent = current.substring(0,charIndex++);
+        if(charIndex > current.length){
+            deleting = true;
+            setTimeout(typeEffect,1200);
+            return;
+        }
+    }else{
+        typing.textContent = current.substring(0,charIndex--);
+        if(charIndex < 0){
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+    }
+
+    setTimeout(typeEffect, deleting ? 40 : 80);
+}
+
+typeEffect();
+
+/* Reveal */
+
+const reveals = document.querySelectorAll(".reveal");
+
+function reveal(){
+
+    reveals.forEach(item=>{
+
+        const top = item.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 80){
+            item.classList.add("active");
+        }
+
+    });
+}
+
+window.addEventListener("scroll",reveal);
+reveal();
+
+/* Accordion */
+
+document.querySelectorAll(".cert").forEach(cert=>{
+
+    cert.addEventListener("click",()=>{
+
+        cert.classList.toggle("active");
+
+    });
+
+});
+
+/* Back To Top */
+
+document.querySelector(".top-btn").addEventListener("click",()=>{
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+</script>
+
+</body>
+</html>
